@@ -7,7 +7,6 @@ export  async function POST(request:NextRequest, response:NextResponse) {
     if (!token) {
         return new Response("No token found", { status: 401 });
     }else{
-        console.log(data.albumId);
         const fetchAlbumDetails = await fetch(`https://api.spotify.com/v1/albums/${data.albumId}`,{
             method: "GET",
             headers: { 

@@ -13,7 +13,6 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  console.log("Middleware check:", { path: url.pathname, token: token ? "present" : "absent" });
   if (protectedPaths.includes(url.pathname) && !token) {
       url.pathname = "/";
       return NextResponse.redirect(url);

@@ -4,7 +4,7 @@ export  async function POST(request:NextRequest, response:NextResponse) {
     const cookies = request.cookies;
     const token = await cookies.get("spotify_token");
     const data = await request.json();
-    console.log("Fetching artist data for:", data);
+
     if (!token) {
         return new Response("No token found", { status: 401 });
     }else{
