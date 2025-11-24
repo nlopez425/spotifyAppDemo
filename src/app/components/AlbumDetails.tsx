@@ -9,7 +9,7 @@ export default function AlbumDetails() {
     
     useEffect(() => {
         const fetchAlbumDetails = async () => {
-            if (albumId) {
+            if (albumId !== "") {
                 const res = await fetch("/api/spotify/artist/albums/tracks", {
                     method: "POST",
                     body: JSON.stringify({ albumId }),
@@ -17,6 +17,8 @@ export default function AlbumDetails() {
                 });
                 const data = await res.json();
                 setAlbumTrackDetails(data);
+            }else {
+                setAlbumTrackDetails(null);
             }
         };
         fetchAlbumDetails();

@@ -2,8 +2,10 @@ import { useContext } from "react";
 import { DashboardContext } from "../dashboard/dashboardContext";
 
 export default function ArtistSelectionList({artists}: {artists: any}) {
-    const {setArtistDetails} = useContext(DashboardContext);
+    const {albumId, setAlbumId, setArtistDetails} = useContext(DashboardContext);
+    
     const handleSelection = (id:string, href:string) => {
+        setAlbumId("");
         setArtistDetails({id, href});
     }
     
